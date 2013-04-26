@@ -1,7 +1,9 @@
-package com.example.waterdringkingreminder;
+package cn.moqichenle.waterdrinkingreminder;
 
 import java.util.Timer;
 import java.util.TimerTask;
+
+import com.example.waterdringkingreminder.R;
 
 import android.os.Bundle;
 import android.os.Vibrator;

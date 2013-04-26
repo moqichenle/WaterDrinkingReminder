@@ -1,4 +1,4 @@
-package com.example.waterdringkingreminder;
+package cn.moqichenle.waterdrinkingreminder;
 
 import android.app.Service;
 import android.content.Intent;
