@@ -19,7 +19,7 @@ public class MainActivity extends Activity {
 
 		@Override
 		public void run() {
-			Log.d("[timer running]", "time out.");
+			Log.d("[timer running]", "every 2s time out.");
 		}
 		
 	}
@@ -42,6 +42,10 @@ public class MainActivity extends Activity {
 				t = new Timer();
 				t.schedule(new TimeTask(), 0, 2000);
 				b.setText("Stop");
+			}else{
+				t.cancel();
+				t.purge();
+				b.setText("Timer");
 			}
 		}
 	};
