@@ -17,13 +17,23 @@ public class MainActivity extends Activity {
 
 	private Timer t;
 	private Vibrator v;
-	private long[] pattern = {0,500,200};
+	private int dot = 200;      // Length of a Morse Code "dot" in milliseconds
+	private int dash = 500;     // Length of a Morse Code "dash" in milliseconds
+	private int short_gap = 200;    // Length of Gap Between dots/dashes
+	private long[] pattern =  {
+		    0,  // Start immediately
+		    dash, short_gap, dot, short_gap, dot,   
+		    short_gap, dot, short_gap, dot,
+		    short_gap, dot, short_gap, dot,
+		    short_gap, dot, short_gap, dot
+		};
+	
 	class TimeTask extends TimerTask {
 		@Override
 		public void run() {
 			Log.d("[timer running]", "oops! 10s, time out.");
 			Log.d("[timer running]", "to vibrate here!");
-			v.vibrate(pattern, 0);
+			v.vibrate(pattern, -1);
 		}
 	}
 
@@ -54,8 +64,8 @@ public class MainActivity extends Activity {
 			if (!b.getText().equals("Stop")) {
 				b.setText("Stop");
 				t = new Timer();
-				Log.d("[timer running]", "only first time.");
-				t.schedule(new TimeTask(), 10000, 1000 * 10);
+				Log.d("[timer running]", "timer starts.");
+				t.schedule(new TimeTask(), 20000, 1000 * 20);
 			} else {
 				b.setText("Timer");
 				t.cancel();
